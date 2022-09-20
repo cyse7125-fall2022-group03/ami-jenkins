@@ -14,11 +14,11 @@
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
-            "security_group_id": "sg-01b580525b2c5c932",
+            "security_group_id": "sg-002f524fbf8969a19",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ec2-user",
             "ami_name": "csye6225_{{timestamp}}",
-           
+            "ami_users": "{{user `demo_account_id`}}",
             "ami_description": "Amazon Linux AMI for CSYE 6225"
                      
         }
