@@ -22,13 +22,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       
+     
+   
+      - uses: actions/checkout@v3
       - name: executing remote ssh commands using ssh key
         uses: ./
         with:
           key: ${{ secrets.KEY }}
           script: whoami
-   
-      - uses: actions/checkout@v3
 
       - name: Packer build -debug
         uses: riznob/packer-build-action@v1.5
