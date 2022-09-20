@@ -1,9 +1,9 @@
 {
     "variables": {
-        "aws_access_key": "",
-        "aws_secret_key": "",
-        "aws_region": "",
-        "source_ami": "",
+        "aws_access_key": "AKIAZXLX5PQWKUFOL2X5",
+        "aws_secret_key": "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",
+        "aws_region": "us-east-1",
+        "source_ami": "ami-052efd3df9dad4825",
         "ssh_username": "",
         "demo_account_id": ""
     },
