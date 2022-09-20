@@ -17,8 +17,8 @@
             "security_group_id": "sg-077d2ac910dde751e",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
-            "ami_name": "csye6225_{{timestamp}}",
-            "ami_users": "{{user `demo_account_id`}}",
+            "ami_name": "csye7125_{{timestamp}}",
+           
             "ami_description": "Amazon Ubantu AMI for CSYE 7125"
                      
         }
