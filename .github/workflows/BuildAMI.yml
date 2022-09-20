@@ -23,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      - name: Packer build
+      - name: Packer build -debug
         uses: riznob/packer-build-action@v1.5
         with:
            templateFile: 'AMI.json'
