@@ -1,0 +1,54 @@
+{
+    "variables": {
+        "aws_access_key": "",
+        "aws_secret_key": "",
+        "aws_region": "",
+        "source_ami": "",
+        "ssh_username": "",
+        "demo_account_id": ""
+    },
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "access_key": "{{user `aws_access_key`}}",
+            "secret_key": "{{user `aws_secret_key`}}",
+            "region": "{{user `aws_region`}}",
+            "instance_type": "t2.micro",
+            "security_group_id": "sg-03a376b208d167193",
+            "source_ami": "{{user `source_ami`}}",
+            "ssh_username": "ec2-user",
+            "ami_name": "csye6225_{{timestamp}}",
+            "ami_users": "{{user `demo_account_id`}}",
+            "ami_description": "Amazon Linux AMI for CSYE 6225"
+                     
+        }
+    ],
+    "provisioners": [
+        {
+					
+            "type": "shell",
+            "inline": [
+				"sudo yum -y update",
+                "sudo yum install -y java-1.8.0-openjdk.x86_64",
+				"sudo yum install -y maven",
+                "java -version",
+				"cd /tmp",
+				"sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz",
+				"sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt",
+				"sudo ln -s /opt/apache-maven-3.8.4 /opt/maven",
+				"cd",
+                "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk/",
+				"PATH=$JAVA_HOME/bin:$PATH",
+                "export M2_HOME=/opt/maven",
+                "export MAVEN_HOME=/opt/maven",
+                "export PATH=${M2_HOME}/bin:${PATH}",
+                "mvn -version",
+                "curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \\ /usr/share/keyrings/jenkins-keyring asc > /dev/null",
+                "echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \\ https://pkg.jenkins.io/debian-stable binary/ | sudo tee \\ /etc/apt/sources.list.d/jenkins.list > /dev/null",
+                "sudo yum -y update"
+
+		
+            ]		
+        }
+    ]
+}
