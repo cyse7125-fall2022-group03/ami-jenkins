@@ -16,7 +16,7 @@
             "instance_type": "t2.micro",
             "security_group_id": "sg-077d2ac910dde751e",
             "source_ami": "{{user `source_ami`}}",
-            "ssh_username": "ubuntu",
+            "ssh_username": "root",
             "ami_name": "csye7125_{{timestamp}}",
            
             "ami_description": "Amazon Ubantu AMI for CSYE 7125"
