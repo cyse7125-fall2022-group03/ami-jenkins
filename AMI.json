@@ -14,7 +14,7 @@
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
-            "security_group_id": "sg-002f524fbf8969a19",
+            "security_group_id": "sg-03d06d5d8d9538902",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ec2-user",
             "ami_name": "csye6225_{{timestamp}}",
