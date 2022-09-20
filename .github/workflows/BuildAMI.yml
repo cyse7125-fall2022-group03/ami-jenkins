@@ -21,15 +21,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      
- 
-      
-     
-      
+   
       - uses: actions/checkout@v3
-      
-      - name: Packer init
-        uses: riznob/packer-build-action@v1.5
+
       - name: Packer build -debug
         uses: riznob/packer-build-action@v1.5
         with:
@@ -39,3 +33,4 @@ jobs:
         env:
            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
+           PACKER_LOG: 1
