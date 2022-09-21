@@ -39,7 +39,6 @@ jobs:
         uses: ExitoLab/packer_build_action_aws@v0.2.10
         with:
           templateFile: 'AMI.json'
-          workingDir: '.'
         env:
            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
