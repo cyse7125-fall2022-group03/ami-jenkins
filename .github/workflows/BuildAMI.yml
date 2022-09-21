@@ -25,7 +25,6 @@ jobs:
       
       - name: Run a multi-line script
         run: |
-          ssh-keygen -t ed25519 -a 100 -f path/to/keyfile
           ls -R
           
  
