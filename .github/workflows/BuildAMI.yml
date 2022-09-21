@@ -28,6 +28,12 @@ jobs:
           ls -R
           
  
+      - name: Configure AWS credentials
+        uses: aws-action/configure-aws-credentials@v1
+        with:
+           aws-access-key-id:  ${{secrets.AWS_ACCESS_KEY_ID_ROOT}}
+           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
+          
 
       - uses: actions/checkout@v3
       - name: Packer build -debug
