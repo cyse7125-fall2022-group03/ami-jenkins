@@ -38,7 +38,7 @@ jobs:
 
       - uses: actions/checkout@v3
       - name: Packer build -debug
-        uses: riznob/packer-build-action@v1.1
+        uses: riznob/packer-build-action@v1.8
         with:
            templateFile: 'AMI.json'
            workingDir: '.'
