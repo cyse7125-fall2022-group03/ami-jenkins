@@ -37,11 +37,11 @@ jobs:
              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
              aws-region: 'us-east-1'
 
-        - name: Initialize Packer Template
-          uses: hashicorp/packer-github-actions@master
-          with:
-            command: init
-            target: AMI.json
+#         - name: Initialize Packer Template
+#           uses: hashicorp/packer-github-actions@master
+#           with:
+#             command: init
+#             target: AMI.json
 
         # validate templates
         - name: Validate Template
