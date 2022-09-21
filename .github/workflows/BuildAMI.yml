@@ -23,6 +23,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - uses: actions/checkout@v2
+            # Make sure the @v0.5.4 matches the current version of the
+            # action 
+      - uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -42,11 +47,7 @@ jobs:
           pwd
           ls -all
 
-            # Make sure the @v0.5.4 matches the current version of the
-            # action 
-      - uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
+      
  
       - name: Configure AWS credentials
         uses: aws-action/configure-aws-credentials@v1
