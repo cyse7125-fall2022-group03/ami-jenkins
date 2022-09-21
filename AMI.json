@@ -3,7 +3,7 @@
         "aws_access_key": "AKIAZXLX5PQWCX5DVINI",
         "aws_secret_key": "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",
         "aws_region": "us-east-1",
-        "source_ami": "ami-0149b2da6ceec4bb0",
+        "source_ami": "ami-08c40ec9ead489470",
         "ssh_username": "",
         "demo_account_id": "",
         "ssh_key":""
