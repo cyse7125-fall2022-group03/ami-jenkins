@@ -5,6 +5,7 @@
         "aws_region": "",
         "source_ami": "",
         "ssh_username": ""
+
     },
     "builders": [
         {
