@@ -27,11 +27,6 @@ jobs:
         with:
           key: ${{ secrets.SSH_KEY }} 
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
- 
-      - name: Init
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: init
 
       - uses: actions/checkout@v3
       - name: Packer build -debug
