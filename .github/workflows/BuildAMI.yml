@@ -21,16 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      
-     
-   
-      
-      - uses: actions/checkout@v1
-      - name: executing remote ssh commands using ssh key
-        uses: ./
-        with:
-          key: ${{ secrets.KEY }}
-          script: whoami
+
 
       - uses: actions/checkout@v3
       - name: Packer build -debug
