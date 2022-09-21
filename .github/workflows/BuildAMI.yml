@@ -31,7 +31,6 @@ jobs:
       - name: Init
         uses: hashicorp/packer-github-actions@master
         with:
-          working_directory: '.'
           command: init
 
       - uses: actions/checkout@v3
