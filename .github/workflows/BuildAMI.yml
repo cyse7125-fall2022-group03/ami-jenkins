@@ -13,66 +13,38 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
-   packer:
   # This workflow contains a single job called "build"
-   
-      # The type of runner that the job will run on
-      runs-on: ubuntu-latest
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-      # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
-        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
+      
+      - name: Run a multi-line script
+        run: |
+          ls -R
+          
+ 
+      - name: Configure AWS credentials
+        uses: aws-action/configure-aws-credentials@v1
+        with:
+           aws-access-key-id:  ${{secrets.AWS_ACCESS_KEY_ID_ROOT}}
+           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
+           aws-region: 'us-east-1'
+          
 
-       # - name: Run a multi-line script
-       #   run: |
-       #     ls -R
-
-
-        - name: Configure AWS credentials
-          uses: aws-action/configure-aws-credentials@v1
-          with:
-             aws-access-key-id:  ${{secrets.AWS_ACCESS_KEY_ID_ROOT}}
-             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
-             aws-region: 'us-east-1'
-
-#         - name: Initialize Packer Template
-#           uses: hashicorp/packer-github-actions@master
-#           with:
-#             command: init
-#             target: AMI.json
-
-        # validate templates
-        - name: Validate Template
-          uses: hashicorp/packer-github-actions@master
-          with:
-            command: validate
-            arguments: -syntax-only
-            target: AMI.json
-
-        # build artifact
-        - name: Build Artifact
-          uses: hashicorp/packer-github-actions@master
-          with:
-            command: build
-            arguments: "-color=false -on-error=abort"
-            target: AMI.json
-          env:
-            PACKER_LOG: 1
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
-            SSH_KEY: ${{ secrets.SSH_KEY }}
-
-       # - uses: actions/checkout@v3
-       # - name: Packer build -debug
-       #   uses: riznob/packer-build-action@v1.5
-       #   with:
-        #     templateFile: 'AMI.json'
-        #     workingDir: '.'
-         #    varFile: 'packers-vars.json'
-         # env:
-         #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
-          #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
-        #    SSH_KEY: ${{ secrets.SSH_KEY }}
-          #   PACKER_LOG: 1
+      - uses: actions/checkout@v3
+      - name: Packer build -debug
+        uses: riznob/packer-build-action@v1.1
+        with:
+           templateFile: 'AMI.json'
+           workingDir: '.'
+           varFile: 'packers-vars.json'
+        env:
+           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
+           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
+           SSH_KEY: ${{ secrets.SSH_KEY }}
+           PACKER_LOG: 1
