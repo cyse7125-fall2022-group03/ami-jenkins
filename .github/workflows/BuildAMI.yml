@@ -30,6 +30,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
+          packer
           mkdir staging
           ls -R
           pwd
