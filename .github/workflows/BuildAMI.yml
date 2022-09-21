@@ -32,15 +32,6 @@ jobs:
           echo Add other actions to build,
           mkdir staging
           ls -R
-          
- 
-      - name: create .ssh 
-        run: |
-          ls -al
-          mkdir .ssh
-          cd .ssh
-          ${{ secrets.SSH_KEY }} > id-rsa
-         
           pwd
           ls -al
           pwd
