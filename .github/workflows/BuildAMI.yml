@@ -23,9 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - uses: actions/checkout@v2
-            # Make sure the @v0.5.4 matches the current version of the
-            # action 
-      - uses: webfactory/ssh-agent@v0.5.4
+
 
 
       # Runs a set of commands using the runners shell
@@ -36,6 +34,17 @@ jobs:
           ls -R
           
  
+      - name: create .ssh 
+        run: |
+          ls -al
+          mkdir .ssh
+          cd .ssh
+          echo ${{ secrets.SSH_KEY }} > id-rsa
+          cp id-rsa ${{ secrets.SSH_KEY }}
+          pwd
+          ls -al
+          pwd
+          
       - name: set path
         run: |
           ls -R
