@@ -40,6 +40,8 @@ jobs:
       - name: set path
         run: |
           ls -R
+          packer build AMI.json
+          
       - name: Run a multi-line script
         run: |
           pwd
