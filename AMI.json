@@ -1,7 +1,7 @@
 {
     "variables": {
-        "aws_access_key": "AKIAYSLYSNKYGPF35MN6",
-        "aws_secret_key": "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",
+        "aws_access_key": "AKIAZXLX5PQWCX5DVINI",
+        "aws_secret_key": "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",
         "aws_region": "us-east-1",
         "source_ami": "ami-052efd3df9dad4825",
         "ssh_username": "",
@@ -16,6 +16,7 @@
             "instance_type": "t2.micro",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
+            "ssh_private_key_file": "{{ env `SSH_KEY` }}",
           
             "temporary_key_pair_type" : "ed25519",
          
