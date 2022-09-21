@@ -25,6 +25,9 @@ jobs:
       
       - name: Run a multi-line script
         run: |
+          pwd
+          cd
+          pwd
           ls -all
           
  
