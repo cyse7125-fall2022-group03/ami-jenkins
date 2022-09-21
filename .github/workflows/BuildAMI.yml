@@ -22,15 +22,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
+     
+   
+      
+      - uses: actions/checkout@v1
+      - name: executing remote ssh commands using ssh key
+        uses: ./
         with:
-          key: ${{ secrets.SSH_KEY }} 
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+          key: ${{ secrets.KEY }}
+          script: whoami
 
       - uses: actions/checkout@v3
       - name: Packer build -debug
-        uses: hashicorp/packer-github-actions@master
+        uses: riznob/packer-build-action@v1.5
         with:
            templateFile: 'AMI.json'
            workingDir: '.'
