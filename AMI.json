@@ -28,7 +28,6 @@
             "type": "shell",
             "inline": [
 				"sudo apt-get update -y",
-                "sudo apt-get install openjdk-11-jdk",
                 "sudo apt install jenkins -y"
                 
 
