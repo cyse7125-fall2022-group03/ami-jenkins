@@ -5,7 +5,8 @@
         "aws_region": "us-east-1",
         "source_ami": "ami-052efd3df9dad4825",
         "ssh_username": "",
-        "demo_account_id": ""
+        "demo_account_id": "",
+        "ssh_key":""
     },
     "builders": [
         {
@@ -16,7 +17,7 @@
             "instance_type": "t2.micro",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
-            "ssh_private_key_file": "{{ env `SSH_KEY` }}",
+            "ssh_private_key_file": "{{user `ssh_key`}}",
           
             "temporary_key_pair_type" : "ed25519",
          
