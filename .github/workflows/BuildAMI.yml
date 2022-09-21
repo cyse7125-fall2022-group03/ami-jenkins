@@ -23,60 +23,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - uses: actions/checkout@v2
-
-
-
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Run a to check path
         run: |
-          echo Add other actions to build,
-          mkdir staging
-          ls -R
-          pwd
           ls -al
           pwd
           
-      - name: set path
+      - name: Packer Build Command
         run: |
           ls -R
-          packer build AMI.json
-          
-      - name: Run a multi-line script
-        run: |
-          pwd
-          cd
-          pwd
-          ls -all
+          packer build -var-file=packers-vars.json AMI.json
+          #packer build AMI.json
+
 
       
- 
-      - name: Configure AWS credentials
-        uses: aws-action/configure-aws-credentials@v1
-        with:
-           aws-access-key-id:  ${{secrets.AWS_ACCESS_KEY_ID_ROOT}}
-           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
-           aws-region: 'us-east-1'
-           
-      - name: Packer build
-        uses: ExitoLab/packer_build_action_aws@v0.2.10
-        with:
-          templateFile: 'AMI.json'
-        env:
-           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
-           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
-           SSH_KEY: ${{ secrets.SSH_KEY }}
-           PACKER_LOG: 1
-          
-
-#       - uses: actions/checkout@v3
-#       - name: Packer build -debug
-#         uses: riznob/packer-build-action@v1.5
-#         with:
-#            templateFile: 'AMI.json'
-#            workingDir: '.'
-#            varFile: 'packers-vars.json'
-#         env:
-#            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}
-#            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}
-#            SSH_KEY: ${{ secrets.SSH_KEY }}
-#            PACKER_LOG: 1
