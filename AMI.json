@@ -19,7 +19,7 @@
             "ssh_username": "ubuntu",
             "ami_name": "csye7125_{{timestamp}}",
            
-            "ami_description": "Amazon Ubantu Jenkins AMI for CSYE 7125"
+            "ami_description": "Amazon Ubntu Jenkins AMI for CSYE 7125"
                      
         }
     ],
