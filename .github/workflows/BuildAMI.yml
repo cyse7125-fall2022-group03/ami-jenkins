@@ -32,7 +32,7 @@ jobs:
       - name: Packer Validate Command
         run: |
           ls -R
-          packer build --syntax-only AMI.json
+          packer validate --syntax-only AMI.json
       
 
       
