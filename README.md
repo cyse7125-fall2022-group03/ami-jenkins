@@ -2,7 +2,7 @@
 
 GitHub Repository for Jenkins AMI
 
-.... Base repo for assignment 1
+.... Base repo for assignment 01
 
 Building Custom Application AMI using Packer
 
