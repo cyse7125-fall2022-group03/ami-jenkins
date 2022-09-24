@@ -28,12 +28,6 @@ jobs:
         run: |
           ls -al
           pwd
-          
-      - name: Packer Validate Command
-        run: |
-          ls -R
-          packer validate --syntax-only AMI.json
-      
 
       
           
