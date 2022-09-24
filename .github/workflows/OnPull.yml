@@ -31,5 +31,5 @@ jobs:
       - name: validate packaer script
         run: |
           ls -R
-          packer validate AMI.json
+          packer validate --syntax-only AMI.json
 
