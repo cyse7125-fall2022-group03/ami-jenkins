@@ -18,7 +18,7 @@
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
             "ami_name": "csye7125_{{timestamp}}",
-           
+            "subnet_id": "subnet-0b7816f44933e71f2",
             "ami_description": "Amazon Ubntu Jenkins AMI for CSYE 7125"
                      
         }
