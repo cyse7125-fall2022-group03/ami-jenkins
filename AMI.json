@@ -5,9 +5,9 @@
         "aws_region": "us-east-1",
         "source_ami": "ami-08c40ec9ead489470",
         "ssh_username": "ubuntu",
-        "security_group": "${{ secrets.AWS_SECURITY_GROUP_ID}}",
-        "member1_acc_id":"${{ secrets.AWS_MEMBER_1_ACC_ID}}",
-        "member2_acc_id":"${{ secrets.AWS_MEMBER_2_ACC_ID}}"
+        "security_group": "${{ secrets.AWS_SECURITY_GROUP_ID }}",
+        "member1_acc_id":"${{ secrets.AWS_MEMBER_1_ACC_ID }}",
+        "member2_acc_id":"${{ secrets.AWS_MEMBER_2_ACC_ID }}"
 
     },
     "builders": [
