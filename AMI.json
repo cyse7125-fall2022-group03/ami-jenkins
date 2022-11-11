@@ -17,7 +17,7 @@
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
-            "security_group_id": "{{ `security_group` }}", 
+            "security_group_id": "{{ user `security_group` }}", 
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
             "ami_users": "{{user `member1_acc_id`}},{{user `member2_acc_id`}}",
