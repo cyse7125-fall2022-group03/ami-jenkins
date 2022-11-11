@@ -20,7 +20,7 @@
             "security_group_id": "{{ user `security_group` }}", 
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
-            "ami_users": "{{user `member1_acc_id`}},{{user `member2_acc_id`}}",
+            "ami_users": "{{user `member1_acc_id`}}",
             "ami_name": "csye7125_{{timestamp}}",
             "ami_description": "Amazon Ubuntu Jenkins AMI for CSYE 7125"    
         }
