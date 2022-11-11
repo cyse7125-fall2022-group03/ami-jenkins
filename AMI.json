@@ -4,7 +4,10 @@
         "aws_secret_key": "${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}",
         "aws_region": "us-east-1",
         "source_ami": "ami-08c40ec9ead489470",
-        "ssh_username": "ubuntu"
+        "ssh_username": "ubuntu",
+        "security_group": "${{ secrets.AWS_SECURITY_GROUP_ID}}",
+        "member1_acc_id":"${{ secrets.AWS_MEMBER_1_ACC_ID}}",
+        "member2_acc_id":"${{ secrets.AWS_MEMBER_2_ACC_ID}}"
 
     },
     "builders": [
@@ -17,9 +20,9 @@
             "security_group_id": "sg-077d2ac910dde751e", 
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
+            "ami_users": "{{user `member1_acc_id`}},{{user `member2_acc_id`}}",
             "ami_name": "csye7125_{{timestamp}}",
-            "ami_description": "Amazon Ubntu Jenkins AMI for CSYE 7125"
-                     
+            "ami_description": "Amazon Ubuntu Jenkins AMI for CSYE 7125"    
         }
     ],
     "provisioners": [
@@ -35,8 +38,12 @@
                 "sudo apt-get update",
                 "sudo apt-get install jenkins -y",
                 "sudo apt install nginx -y",
-                "sudo apt install certbot python3-certbot-nginx -y"
-               
+                "sudo apt install certbot python3-certbot-nginx -y",
+                "curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null",
+                "sudo apt-get install apt-transport-https --yes",
+                "echo deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list",
+                "sudo apt-get update",
+                "sudo apt-get install helm"
             ]		
         }
     ]
