@@ -45,7 +45,20 @@
                 "rm helm-v3.9.3-linux-amd64.tar.gz",
                 "rm -rf linux-amd64",
                 "sudo apt-get update",
-                "helm version"
+                "helm version",
+                "sleep 10",
+                "sudo apt-get update",
+                "curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -",
+                "sudo apt-get update",
+                "sudo apt-get install -y nodejs",
+                "sleep 10",
+                "sudo apt-get update",
+                "sudo npm ci",
+                "sleep 10",
+                "sudo apt-get update",
+                "node -v",
+                "npm -v",
+                "sleep 10"
             ]		
         }
     ]

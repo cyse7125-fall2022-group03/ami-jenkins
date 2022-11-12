@@ -22,4 +22,8 @@ Name, NUID and Email address
 - NUID - 001549838
 - Email Address - kule.k@northeastern.edu
 
+- Name - Vignesh Gunasekaran
+- NUID - 001029530
+- Email Address - gunasekaran.v@northeastern.edu
+
 ## Licenses 
