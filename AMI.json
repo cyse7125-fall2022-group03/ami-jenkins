@@ -53,7 +53,7 @@
                 "sudo apt-get install -y nodejs",
                 "sleep 10",
                 "sudo apt-get update",
-                "sudo npm i --package-lock-only",
+                "sudo npm init",
                 "sleep 10",
                 "sudo apt-get update",
                 "sudo npm ci",
