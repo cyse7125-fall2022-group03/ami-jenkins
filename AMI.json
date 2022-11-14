@@ -20,7 +20,7 @@
             "security_group_id": "{{ user `security_group` }}", 
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
-            "ami_users": "{{user `member1_acc_id`}}",
+            "ami_users": ["{{user `member1_acc_id`}}","{{user `member2_acc_id`}}"],
             "ami_name": "csye7125_{{timestamp}}",
             "ami_description": "Amazon Ubuntu Jenkins AMI for CSYE 7125"    
         }
@@ -63,7 +63,9 @@
                 "sudo apt-get update",
                 "node -v",
                 "npm -v",
-                "sleep 10"
+                "sleep 10",
+                "curl -L https://github.com/jenkins-zh/jenkins-cli/releases/latest/download/jcli-linux-amd64.tar.gz|tar xzv",
+                "sudo mv jcli /usr/local/bin/"
             ]		
         }
     ]
