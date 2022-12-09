@@ -19,7 +19,9 @@
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
             "profile": "{{ user `user_profile` }}",
-            "ami_users": "{{user `aws_user_ids`}}",
+            "ami_users": [
+                "668655778860", "678152904618", "387808217063"
+            ],
             "subnet_id": "{{ user `subnetid` }}",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
