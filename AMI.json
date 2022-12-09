@@ -6,6 +6,7 @@
         "source_ami": "ami-08c40ec9ead489470",
         "ssh_username": "ubuntu",
         "security_group": "",
+        "subnetid": "",
         "member1_acc_id":""
 
     },
@@ -17,6 +18,7 @@
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
             "security_group_id": "{{ user `security_group` }}", 
+            "subnet_id": "{{ user `subnetid` }}",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
             "ami_users": "{{user `member1_acc_id`}}",
