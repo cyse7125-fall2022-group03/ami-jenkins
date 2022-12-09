@@ -18,13 +18,12 @@
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
-            "profile": "{{ user `user_profile` }}", 
-            "security_group_id": "{{ user `security_group` }}", 
+            "profile": "{{ user `user_profile` }}",
             "subnet_id": "{{ user `subnetid` }}",
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "ubuntu",
-            "ami_users": "{{user `member1_acc_id`}}",
             "ami_name": "csye7125_{{timestamp}}",
+            "ssh_timeout": "20m",
             "ami_description": "Amazon Ubuntu Jenkins AMI for CSYE 7125"    
         }
     ],
