@@ -34,7 +34,7 @@ jobs:
       - name: Packer Build Command
         run: |
           ls -R
-          packer build -var 'aws_access_key=${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}' -var 'aws_secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}' -var 'member1_acc_id=${{ secrets.AWS_MEMBER_1_ACC_ID }}' -var 'security_group=${{ secrets.AWS_SECURITY_GROUP_ID }}' -var 'subnetid=${{ secrets.AWS_SUBNET_ID }}'  -var 'user_profile=${{ secrets.AWS_PROFILE }}' AMI.json
+          packer build -var 'aws_access_key=${{ secrets.AWS_ACCESS_KEY_ID_ROOT }}' -var 'aws_secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY_ROOT }}' -var 'subnetid=${{ secrets.AWS_SUBNET_ID }}'  -var 'user_profile=${{ secrets.AWS_PROFILE }}' -var 'aws_user_ids=${{ secrets.AWS_SUBNET_ID }}'  -var 'aws_user_ids=${{ secrets.AWS_USER_IDS }}' AMI.json
       
 
       
