@@ -17,7 +17,7 @@
             "access_key": "{{user `aws_access_key`}}",
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "{{user `aws_region`}}",
-            "instance_type": "t2.micro",
+            "instance_type": "t3.large",
             "profile": "{{ user `user_profile` }}",
             "ami_users": [
                 "668655778860", "678152904618", "387808217063"
@@ -32,6 +32,17 @@
     ],
     "provisioners": [
         {
+            "destination":"/tmp/",
+            "source":"maven.sh",
+            "type":"file"
+        },{
+            "type": "shell",
+            "inline": [
+                "sudo cp /tmp/maven.sh /etc/profile.d"   ,
+                "sudo chmod 0774 /etc/profile.d/maven.sh"
+            ]
+        },
+        {
 					
             "type": "shell",
             "inline": [
@@ -41,6 +52,7 @@
                 "sudo apt-get update",
                 "sudo apt-get install openjdk-17-jre -y",
                 "sudo apt-get update",
+                "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64",
                 "echo $JAVA_HOME",
                 "java --version",
                 "echo $PATH",
