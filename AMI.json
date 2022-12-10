@@ -38,8 +38,7 @@
         },{
             "type": "shell",
             "inline": [
-                "sudo cp /tmp/maven.sh /etc/profile.d"   ,
-                "sudo chmod 0774 /etc/profile.d/maven.sh"
+                "sudo cp /tmp/maven.sh /etc/profile.d"
             ]
         },
         {
